@@ -11,63 +11,94 @@
 </head>
 <body>
   <div class="navbar">
-    <a href="#home">Startsida</a>
+    <button class="tablinks1" onclick="openSite(event, 'Home')" id="defaultOpen" >Startsida</button>
     <div class="dropdown">
-      <button class="dropbtn">Konsumption
+      <button class="tablinks" onclick="openSite(event, 'Konsumption')">Konsumption
         <i class="fa fa-caret-down"></i>
       </button>
       <div class="dropdown-content">
-        <a href="#">Link 1</a>
-        <a href="#">Link 2</a>
-        <a href="#">Link 3</a>
+        <a href="#K1">Link 1</a>
+        <a href="#K2">Link 2</a>
+        <a href="#K3">Link 3</a>
       </div>
     </div>
     <div class="dropdown">
-      <button class="dropbtn">Resor
+      <button class="tablinks" onclick="openSite(event, 'Resor')">Resor
         <i class="fa fa-caret-down"></i>
       </button>
       <div class="dropdown-content">
-        <a href="#">Link 1</a>
-        <a href="#">Link 2</a>
-        <a href="#">Link 3</a>
+        <a href="#R1">Link 1</a>
+        <a href="#R2">Link 2</a>
+        <a href="#R3">Link 3</a>
       </div>
     </div>
     <div class="dropdown">
-      <button class="dropbtn">Boende
+      <button class="tablinks" onlick="openSite(event, 'Boende')">Boende
         <i class="fa fa-caret-down"></i>
       </button>
       <div class="dropdown-content">
-        <a href="#">Link 1</a>
-        <a href="#">Link 2</a>
-        <a href="#">Link 3</a>
+        <a href="#B1">Link 1</a>
+        <a href="#B2">Link 2</a>
+        <a href="#B3">Link 3</a>
       </div>
     </div>
     <div class="dropdown">
-      <button class="dropbtn">Mat
+      <button class="tablinks" onclick="openSite(event, 'Mat')">Mat
         <i class="fa fa-caret-down"></i>
       </button>
       <div class="dropdown-content">
-        <a href="#">Link 1</a>
-        <a href="#">Link 2</a>
-        <a href="#">Link 3</a>
+        <a href="#M1">Link 1</a>
+        <a href="#M2">Link 2</a>
+        <a href="#M3">Link 3</a>
       </div>
     </div>
     <div class="dropdown">
-      <button class="dropbtn">Klimatkompensera
+      <button class="tablinks" onclick="openSite(event, 'Klimatkompensera')">Klimatkompensera
         <i class="fa fa-caret-down"></i>
       </button>
       <div class="dropdown-content">
-        <a href="#">Link 1</a>
-        <a href="#">Link 2</a>
-        <a href="#">Link 3</a>
+        <a href="#KLI1">Link 1</a>
+        <a href="#KLI2">Link 2</a>
+        <a href="#KLI3">Link 3</a>
       </div>
     </div>
-    <a href="#quiz">Quiz</a>
-    <a href="#kontakt">Kontakta oss</a>
+    <button class="tablinks" onclick="openSite(event, 'Quiz')">Quiz</button>
+    <button class="tablinks" onclick="openSite(event, 'Kontakta oss')">Kontakta oss</button>
     <div class="search-container">
       <form action = "/action_page.php">
-        <input type = "text" placeholder="Sök..."></input>
         <button type = "submit"><i class = "fa fa-search"></i></button>
+        <input type = "text" placeholder="Sök..."></input>
       </form>
     </div>
   </div>
+
+  <div className="dropdown-content" id="#B1" class="tabcontent">
+    <p> Här bor jag</p>
+  </div>
+
+  <div className="dropdown-content" id="#B2" class="tabcontent">
+    <p> Här bor du</p>
+  </div>
+
+  <script>
+    function openSite(evt, siteName) {
+      var i, tabcontent, tablinks;
+      tabcontent = document.getElementsByClassName("tabcontent");
+      for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+      }
+      tablinks = document.getElementsByClassName("tablinks");
+      tablinks1 = document-getElementsByClassName("tablinks1")
+      for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+      }
+      for (i = 0; i < tablinks1.length; i++) {
+        tablinks1[i].className = tablinks1[i].className.replace(" active", "");
+      }
+      document.getElementById(siteName).style.display = "block";
+      evt.currentTarget.className += " active";
+    }
+    document.getElementById("defaultOpen").click();
+  </script>
+</body>
+</html>
